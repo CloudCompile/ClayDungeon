@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClayDungeon — Pollinations Story Engine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>ClayDungeon</h1>
+    <div class="top-actions">
+      <button id="settingsBtn" class="btn">⚙ Settings</button>
+      <button id="clearBtn" class="btn ghost">Clear Story</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stage">
+      <div id="story" class="story" aria-live="polite"></div>
+      <div id="sceneImage" class="scene-image hidden"></div>
+    </section>
+
+    <form id="inputForm" class="composer" autocomplete="off">
+      <input id="inputText" type="text" placeholder="Do something ridiculous..." required />
+      <button id="sendBtn" class="btn primary">Send</button>
+    </form>
+  </main>
+
+  <!-- Settings modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card clay">
+      <h2>Settings</h2>
+      <label>
+        Pollinations API token (optional)
+        <input id="apiKeyInput" type="password" placeholder="Paste token here (session only)" />
+      </label>
+      <label>
+        Try to use <code>enter.pollinations.ai</code> endpoints first
+        <input id="tryEnter" type="checkbox" />
+      </label>
+      <div class="modal-actions">
+        <button id="saveSettings" class="btn primary">Save</button>
+        <button id="closeModal" class="btn ghost">Close</button>
+      </div>
+      <p class="note">Tip: using a token in the browser is convenient but insecure long-term. Use a server proxy for real projects.</p>
+    </div>
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
